@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+    <package name="/" extends="struts-default,json-default">
+
+        <action name="Signup">
+            <result>/Signup.jsp</result>
+        </action>
+        <action name="Signin">
+            <result>/Signin.jsp</result>
+        </action>
+        <action name="History">
+            <result>/History.jsp</result>
+        </action>
+        <action name="Home">
+            <result>/index.jsp</result>
+        </action>
+        <action name="Admin/Home">
+            <result>/Admin/index.jsp</result>
+        </action>
+        <action name="Admin/Create">
+            <result>/Admin/CreateUser.jsp</result>
+        </action>
+        <action name="Admin/Trips">
+            <result>/Admin/Trips.jsp</result>
+        </action>
+        <action name="Admin/Trains">
+            <result>/Admin/Train.jsp</result>
+        </action>
+        <action name="Admin/Routes">
+            <result>/Admin/Routes.jsp</result>
+        </action>
+
+        <action name="register" class="com.user.User" method="execute">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="HOME" class="com.user.User" method="login">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="get6Trips" class="com.train.Trips" method="TripsLimitSix">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="getTrainByName" class="com.train.Trips" method="TrainNameSearch">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="TrainByFilter" class="com.train.Trips" method="TrainFilterSearch">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+        <action name="BookUI" class="com.train.Trips" method="BookSeatRendering">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="createBooking" class="com.train.Booking" method="execute">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="BookedSeats" class="com.train.Booking" method="UserBookingSearch">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="BookedSeatDelete" class="com.train.Booking" method="BookedSeatDelete">
+            <result name="success" type="chain">History</result>
+            <result name="error" type="chain">History</result>
+        </action>
+
+
+        <!-- ADMIN SIDE ROUTES -->
+
+        <action name="Admin/createTrain" class="com.train.Train" method="execute">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="Admin/getTrainDetails" class="com.train.Train" method="TrainDetailsAdminHome">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+
+        <action name="Admin/TrainInfoAdmin" class="com.train.Train" method="TrainsAdminDetails">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="Admin/RoutesDetails" class="com.train.Trips" method="TripsInfoBasedOnRoutes">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="Admin/createTrip" class="com.train.Trips" method="execute">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="Admin/register" class="com.user.User" method="execute">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="Admin/getTripsDetails" class="com.train.Trips" method="AdminTrips">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+        <action name="Admin/TripDetails" class="com.train.Booking" method="TripDetails">
+            <result name="success" type="json" />
+            <result name="error" type="json" />
+        </action>
+
+
+    </package>
+</struts>

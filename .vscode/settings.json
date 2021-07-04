@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.jsp": "html"
+    },
+    "git.ignoreLimitWarning": true
+}

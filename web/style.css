@@ -1,0 +1,67 @@
+/* CUSTOM COLOUR */
+.bg-dark2 {
+  background-color: #1f2225;
+}
+
+/* GOOGLE FONT */
+.google-font {
+  font-family: "Nunito", sans-serif;
+}
+
+/* GOOGLE FONT */
+.google-Quicksand {
+  font-family: "Quicksand", sans-serif;
+}
+
+/* TOAST MESSAGES */
+.ToastContainer {
+  margin: 20px;
+  position: relative;
+}
+
+/* scrollbar width */
+.custom-scrollbar-css2::-webkit-scrollbar {
+  height: 4px;
+  width: 10px;
+}
+
+/* scrollbar track */
+.custom-scrollbar-css2::-webkit-scrollbar-track {
+  background: #dc3545;
+}
+
+/* scrollbar handle */
+.custom-scrollbar-css2::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #00d2ff;
+  width: 30px;
+  background-image: linear-gradient(to top, #eee 0%, #eee 100%);
+}
+
+/* scrollbar width */
+.custom-scrollbar-js,
+.custom-scrollbar-css {
+  height: 500px;
+}
+
+/* Custom Scrollbar using CSS */
+.custom-scrollbar-css {
+  overflow-y: scroll;
+}
+
+/* scrollbar width */
+.custom-scrollbar-css::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* scrollbar track */
+.custom-scrollbar-css::-webkit-scrollbar-track {
+  background: #dc3545;
+}
+
+/* scrollbar handle */
+.custom-scrollbar-css::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #00d2ff;
+  background-image: linear-gradient(to top, #eee 0%, #eee 100%);
+}
