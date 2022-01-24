@@ -12,9 +12,9 @@ import java.util.Map;
 import com.db.Connector;
 
 public class Trips {
-    private String TrainID, SourceCity, DestinationCity, TripId, trainName, FromTime, ToTime, DateOfStart, DateOfEnd,
+    private String TrainID, SourceCity, DestinationCity, trainName, FromTime, ToTime, DateOfStart, DateOfEnd,
             Status;
-    private int AC1, AC2, SL;
+    private int AC1, AC2, SL,TripID;
     private ArrayList<Map<String, String>> trips = new ArrayList<Map<String, String>>();
     private ArrayList<Map<String, String>> routesArray = new ArrayList<Map<String, String>>();
     private ArrayList<ArrayList<Map<String,String>>> routesTripsArray = new  ArrayList<ArrayList<Map<String,String>>>();
@@ -134,13 +134,15 @@ public class Trips {
         DestinationCity = destinationCity;
     }
 
-    public String getTripId() {
-        return TripId;
+    public int getTripID() {
+        return TripID;
     }
 
-    public void setTripId(String tripId) {
-        TripId = tripId;
+    public void setTripID(int TripID) {
+        this.TripID = TripID;
     }
+
+    
 
     public String getFromTime() {
         return FromTime;
@@ -207,7 +209,7 @@ public class Trips {
             trips.clear();
             while (get6TripsDetailsResult.next()) {
                 Map<String, String> info = new HashMap<>();
-                info.put("TripID", get6TripsDetailsResult.getString("TripID"));
+                info.put("TripID", String.valueOf(get6TripsDetailsResult.getInt("TripID")));
                 info.put("TrainID", get6TripsDetailsResult.getString("TrainID"));
                 info.put("SourceCity", get6TripsDetailsResult.getString("SourceCity"));
                 info.put("DestinationCity", get6TripsDetailsResult.getString("DestinationCity"));
@@ -238,7 +240,7 @@ public class Trips {
             trips.clear();
             while (getTripResult.next()) {
                 Map<String, String> infos = new HashMap<>();
-                infos.put("TripID", getTripResult.getString("TripID"));
+                infos.put("TripID", String.valueOf(getTripResult.getInt("TripID")));
                 infos.put("TrainID", getTripResult.getString("TrainID"));
                 infos.put("SourceCity", getTripResult.getString("SourceCity"));
                 infos.put("DestinationCity", getTripResult.getString("DestinationCity"));
@@ -276,7 +278,7 @@ public class Trips {
                 Map<String, String> info = new HashMap<String, String>();
                 info.put("TrainName", TrainInfo.getString("TrainName"));
                 info.put("TrainID", TrainInfo.getString("TrainID"));
-                info.put("TripID", TrainInfo.getString("TripID"));
+                info.put("TripID", String.valueOf(TrainInfo.getInt("TripID")));
                 info.put("TrainID", TrainInfo.getString("TrainID"));
                 info.put("SourceCity", TrainInfo.getString("SourceCity"));
                 info.put("DestinationCity", TrainInfo.getString("DestinationCity"));
@@ -307,7 +309,7 @@ public class Trips {
             trips.clear();
             while (TripInfo.next()) {
                 Map<String, String> info = new HashMap<String, String>();
-                info.put("TripID", TripInfo.getString("TripID"));
+                info.put("TripID", String.valueOf(TripInfo.getInt("TripID")));
                 info.put("TrainID", TripInfo.getString("TrainID"));
                 info.put("SourceCity", TripInfo.getString("SourceCity"));
                 info.put("DestinationCity", TripInfo.getString("DestinationCity"));
@@ -333,11 +335,11 @@ public class Trips {
             Connection con = Connector.initializeDatabase();
             Statement statementBookSeatRendering = (Statement) con.createStatement();
             ResultSet BookSeatRenderingResult = statementBookSeatRendering
-                    .executeQuery("SELECT * FROM trips WHERE TripID='" + TripId + "'");
+                    .executeQuery("SELECT * FROM trips WHERE TripID='" + TripID + "'");
             seatsAvailable.clear();
-            ArrayList<?> AC1bookedArray = Booking.SeatsBookedArray("AC1", TripId);
-            ArrayList<?>  AC2bookedArray = Booking.SeatsBookedArray("AC2", TripId);
-            ArrayList<?>  SLbookedArray = Booking.SeatsBookedArray("SL", TripId);
+            ArrayList<?> AC1bookedArray = Booking.SeatsBookedArray("AC1", TripID);
+            ArrayList<?>  AC2bookedArray = Booking.SeatsBookedArray("AC2", TripID);
+            ArrayList<?>  SLbookedArray = Booking.SeatsBookedArray("SL", TripID);
             while (BookSeatRenderingResult.next()) {
                 ArrayList<Integer> AC1LeftOutArray = new ArrayList<Integer>();
                 ArrayList<Integer> AC2LeftOutArray = new ArrayList<Integer>();
@@ -395,7 +397,7 @@ public class Trips {
                     "SELECT trips.*,train.TrainName FROM trips,train WHERE SourceCity='"+distinctRoutesResult.getString("SourceCity")+"' AND DestinationCity='"+distinctRoutesResult.getString("DestinationCity")+"' AND trips.TrainID=train.TrainID and Status='ALL';");
                 while(RoutesTripsResult.next()){
                     Map<String, String> trips = new HashMap<String, String>();
-                    trips.put("TripID", RoutesTripsResult.getString("TripID"));
+                    trips.put("TripID", String.valueOf(RoutesTripsResult.getInt("TripID")));
                     trips.put("TrainID", RoutesTripsResult.getString("TrainID"));
                     trips.put("SourceCity", RoutesTripsResult.getString("SourceCity"));
                     trips.put("DestinationCity", RoutesTripsResult.getString("DestinationCity"));

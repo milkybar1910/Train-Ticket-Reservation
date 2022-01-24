@@ -39,6 +39,7 @@ $(function () {
       type: "POST",
       data: body,
       success: (result) => {
+        
         if (result.error) {
           setTimeout(() => {
             $("#myToast").toast("hide");

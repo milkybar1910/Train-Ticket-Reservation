@@ -55,11 +55,14 @@ public class User {
     public String execute() throws Exception{
         try {
             Connection con = Connector.initializeDatabase();
+            System.out.println(name);
             Statement statement = (Statement) con.createStatement();
             String duplicate = null;
             ResultSet rs = statement.executeQuery("SELECT * from user where Email='" + email + "'");
             while (rs.next()) 
                 duplicate = rs.getString(1);
+//            System.out.print("Came");
+
             if (duplicate == null) {
                 String INSERT_USERS = "INSERT INTO user" + "(UserName, Email, Password,Role) VALUES " + " (?, ?, ?,?);";
                 PreparedStatement preparedStatement = con.prepareStatement(INSERT_USERS);
@@ -79,11 +82,13 @@ public class User {
 
     //USER LOGIN
     public String login() throws Exception {
+        System.out.print("LOGIN HERE");
         try {
             Connection con = Connector.initializeDatabase();
             Statement statement = (Statement) con.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * from user where Email='" + email + "'");
             if (rs.next()) {
+                
                 ResultSet rs1 = statement
                         .executeQuery("SELECT * from user where Email='" + email + "' AND Password='" + password + "'");
                 if (rs1.next()) {

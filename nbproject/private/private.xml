@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/TRAINTICKETRESERVATION/nbproject/private/private.properties</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/TRAINTICKETRESERVATION/web/index.jsp</file>
+            <file>file:/C:/Users/DELL/Downloads/TRAINTICKETRESERVATION/TRAINTICKETRESERVATION/src/java/com/db/Connector.java</file>
+            <file>file:/C:/Users/DELL/Downloads/TRAINTICKETRESERVATION/TRAINTICKETRESERVATION/src/java/struts.xml</file>
+            <file>file:/C:/Users/DELL/Downloads/TRAINTICKETRESERVATION/TRAINTICKETRESERVATION/src/java/com/user/User.java</file>
+            <file>file:/C:/Users/DELL/Downloads/TRAINTICKETRESERVATION/TRAINTICKETRESERVATION/web/jQuery/Signin.js</file>
+            <file>file:/C:/Users/DELL/Downloads/TRAINTICKETRESERVATION/TRAINTICKETRESERVATION/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

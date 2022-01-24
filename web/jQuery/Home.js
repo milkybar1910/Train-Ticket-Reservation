@@ -432,7 +432,7 @@ $(function () {
   function BookSeatButton(tripId) {
     $.ajax({
       url: "BookUI",
-      data: { TripId: tripId },
+      data: { TripID: tripId },
       success: (result) => {
         $("#AC1ui").empty();
         $("#AC2ui").empty();
@@ -448,7 +448,7 @@ $(function () {
               "</button></div>"
           ).appendTo("#AC1ui");
           $("#AC1" + seat).on("click", () =>
-            BookTrainSeat(result.tripId, seat, "AC1")
+            BookTrainSeat(result.tripID, seat, "AC1")
           );
           return;
         });
@@ -463,7 +463,7 @@ $(function () {
               "</button></div>"
           ).appendTo("#AC2ui");
           $("#AC2" + seat).on("click", () =>
-            BookTrainSeat(result.tripId, seat, "AC2")
+            BookTrainSeat(result.tripID, seat, "AC2")
           );
           return;
         });
@@ -478,7 +478,7 @@ $(function () {
               "</button></div>"
           ).appendTo("#SLui");
           $("#SL" + seat).on("click", () =>
-            BookTrainSeat(result.tripId, seat, "SL")
+            BookTrainSeat(result.tripID, seat, "SL")
           );
           return;
         });

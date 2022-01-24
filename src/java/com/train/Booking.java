@@ -11,28 +11,34 @@ import com.db.Connector;
 
 public class Booking {
     
-    private String TripID,Email,PassengerName,Address,PhoneNumber,Gender,Type,BookingID;
-    private int SeatNo;
+    private String Email,PassengerName,Address,PhoneNumber,Gender,Type;
+    private int SeatNo,TripID,BookingID;
     private ArrayList<Map<String, String>> bookedTrips = new ArrayList<Map<String, String>>();
-    
-    public String getBookingID() {
+
+    public int getTripID() {
+        return TripID;
+    }
+
+    public void setTripID(int TripID) {
+        this.TripID = TripID;
+    }
+
+    public int getBookingID() {
         return BookingID;
     }
-    public void setBookingID(String bookingID) {
-        BookingID = bookingID;
+
+    public void setBookingID(int BookingID) {
+        this.BookingID = BookingID;
     }
+    
+    
     public ArrayList<Map<String, String>> getBookedTrips() {
         return bookedTrips;
     }
     public void setBookedTrips(ArrayList<Map<String, String>> bookedTrips) {
         this.bookedTrips = bookedTrips;
     }
-    public String getTripID() {
-        return TripID;
-    }
-    public void setTripID(String tripID) {
-        TripID = tripID;
-    }
+   
     public String getEmail() {
         return Email;
     }
@@ -77,12 +83,12 @@ public class Booking {
     }
     
     // ARRAY OF SEAT NUMBER FOR TRIPS.JAVA
-    public static ArrayList<Integer> SeatsBookedArray(String category,String tripID) throws Exception{
+    public static ArrayList<Integer> SeatsBookedArray(String category,int tripID) throws Exception{
         ArrayList<Integer> seatsBookedArray = new ArrayList<Integer>();
         try {
             Connection con = Connector.initializeDatabase();
             Statement getSeatBookedArray = (Statement) con.createStatement();
-            ResultSet SeatBookedArrayResult = getSeatBookedArray.executeQuery("SELECT SeatNo from bookings WHERE Type='"+category+"' AND TripID='"+tripID+"'");
+            ResultSet SeatBookedArrayResult = getSeatBookedArray.executeQuery("SELECT SeatNo from bookings WHERE Type='"+category+"' AND TripID="+tripID+"");
             while(SeatBookedArrayResult.next())
                 seatsBookedArray.add(SeatBookedArrayResult.getInt("SeatNo"));
             return seatsBookedArray; 
@@ -99,7 +105,7 @@ public class Booking {
                 String INSERT_BOOKING = "INSERT INTO bookings" + "(TripID, Email,PassengerName,Address,PhoneNumber,SeatNo,Gender,Type) VALUES "
                         + " (?,?,?,?,?,?,?,?);";
                 PreparedStatement preparedStatement = con.prepareStatement(INSERT_BOOKING);
-                preparedStatement.setString(1, TripID);
+                preparedStatement.setInt(1, TripID);
                 preparedStatement.setString(2, Email);
                 preparedStatement.setString(3, PassengerName);
                 preparedStatement.setString(4, Address);
@@ -131,8 +137,8 @@ public class Booking {
                 info.put("SeatNo",String.valueOf(BookInfo.getInt("SeatNo")));
                 info.put("Type", BookInfo.getString("Type"));
                 info.put("Gender", BookInfo.getString("Gender"));
-                info.put("BookingID", BookInfo.getString("BookingID"));
-                info.put("TripID", BookInfo.getString("TripID"));
+                info.put("BookingID",String.valueOf(BookInfo.getInt("BookingID")));
+                info.put("TripID", String.valueOf(BookInfo.getInt("TripID")));
                 info.put("TrainID", BookInfo.getString("TrainID"));
                 info.put("SourceCity", BookInfo.getString("SourceCity"));
                 info.put("DestinationCity", BookInfo.getString("DestinationCity"));
@@ -165,7 +171,7 @@ public class Booking {
                 info.put("Seat No",String.valueOf(BookInfo.getInt("SeatNo")));
                 info.put("Type", BookInfo.getString("Type"));
                 info.put("Gender", BookInfo.getString("Gender"));
-                info.put("BookingID", BookInfo.getString("BookingID"));
+                info.put("BookingID",String.valueOf(BookInfo.getInt("BookingID")));
                 bookedTrips.add(info);
             }
             return "success";
