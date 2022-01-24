@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- bootstrap -->
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -31,7 +31,7 @@
     <!-- NAV BAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark2 border rounded">
       <a class="navbar-brand text-white" href="/TRAINTICKETRESERVATION/Admin/"
-        >INDIAN RAILWAYS</a
+        >SIVA SHANKAR</a
       >
       <button
         class="navbar-toggler"
@@ -57,7 +57,7 @@
 
           <li class="nav-item">
             <a class="nav-link text-white mx-2" href="Create"
-              >Create <span class="sr-only">(current)</span></a
+              >Create User <span class="sr-only">(current)</span></a
             >
           </li>
 
@@ -90,12 +90,7 @@
     <div class="container-fluid my-5">
       <div class="row">
         <div
-          class="
-            col-12 col-lg-6
-            mt-md-5
-            align-self-center
-            justify-content-centeR
-          "
+          class="col-12 col-lg-6 mt-md-5 align-self-center justify-content-centeR"
         >
           <div class="text-center align-self-center justify-content-center">
             <img
@@ -106,13 +101,7 @@
         </div>
 
         <div
-          class="
-            col-12 col-lg-6
-            text-white
-            mt-5
-            align-self-center
-            justify-content-center
-          "
+          class="col-12 col-lg-6 text-white mt-5 align-self-center justify-content-center"
         >
           <div class="ToastContainer">
             <div
@@ -186,7 +175,7 @@
               type="submit"
               id="createTrain"
             >
-              CREATE TRAIN
+              Create Train
             </button>
           </div>
         </div>
@@ -197,15 +186,7 @@
     <div class="container-fluid my-5">
       <div class="row">
         <div
-          class="
-            col-12 col-lg-6
-            text-white
-            mt-5
-            ml-lg-5
-            align-self-center
-            justify-content-center
-            order-2 order-lg-1
-          "
+          class="col-12 col-lg-6 text-white mt-5 ml-lg-5 align-self-center justify-content-center order-2 order-lg-1"
         >
           <div class="ToastContainer">
             <div
@@ -281,14 +262,7 @@
           </div>
         </div>
         <div
-          class="
-            col-12 col-lg-5
-            mt-md-5
-            order-1
-            p-4
-            order-lg-2
-            align-self-center
-          "
+          class="col-12 col-lg-5 mt-md-5 order-1 p-4 order-lg-2 align-self-center"
         >
           <div class="text-center align-self-center justify-content-center">
             <img

@@ -90,7 +90,9 @@
       </div>
     </div>
     <!-- HEADINGS -->
-    <h1 class="text-center mt-5 google-font">Welcome To INDIAN RAILWAYS</h1>
+    <h1 class="text-center mt-5 google-font">
+      Welcome To INDIAN RAILWAYS SIVA SHANKAR
+    </h1>
     <div class="text-center lead text-uppercase mb-5">
       for a safe and comfort journey
     </div>
@@ -177,28 +179,13 @@
         class="row justify-content-center align-item-center align-self-center"
       >
         <div
-          class="
-            col-12 col-lg-6
-            card
-            rounded
-            p-3
-            bg-dark2
-            shadow
-            mt-5 mt-5
-            ml-3 ml-lg-0
-          "
+          class="col-12 col-lg-6 card rounded p-3 bg-dark2 shadow mt-5 mt-5 ml-3 ml-lg-0"
         >
           <div
-            class="
-              row
-              m-2
-              text-center
-              justify-content-center
-              align-item-center align-self-center
-            "
+            class="row m-2 text-center justify-content-center align-item-center align-self-center"
             id="col2"
           >
-            <h3 class="google-font">No Records Found</h3>
+            <h3 class="google-font">No Records Found,Come back later</h3>
           </div>
         </div>
       </div>
@@ -223,7 +210,7 @@
         <div class="modal-content bg-danger">
           <div class="modal-header text-center">
             <h5 class="modal-title" id="staticBackdropLabel">
-              REGISTRATION REQUIRED !!!
+              Registration Required !!!
             </h5>
             <button
               type="button "
@@ -235,7 +222,7 @@
             </button>
           </div>
           <div class="modal-body">
-            YOU NEED TO LOGIN OR SIGNUP TO BOOK SEATS
+            You need to login or signup to book seats
           </div>
           <div class="modal-footer">
             <button
